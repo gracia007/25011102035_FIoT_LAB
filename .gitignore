@@ -1,0 +1,54 @@
+# ---------- OS / editor ----------
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# ---------- Keil uVision (8051 & STM32) ----------
+# Build output folders (the .hex inside them is kept, see bottom)
+Objects/*
+Listings/
+# STM32 Keil build folder (MDK-ARM/<project>/): intermediate files are
+# removed by the extension rules below, the .hex is kept
+
+# Per-user IDE settings
+*.uvguix.*
+*.uvgui.*
+*.uvoptx
+*.uvopt
+*.scvd
+
+# Intermediate build files
+*.o
+*.obj
+*.d
+*.crf
+*.lst
+*.lnp
+*.m51
+*.map
+*.axf
+*.elf
+*.htm
+*.build_log.htm
+*.dep
+*.iex
+*.sct
+*.__i
+*._2i
+*.tra
+*.bak
+*.plg
+JLinkLog.txt
+EventRecorderStub.scvd
+
+# Keep compiled firmware (.hex) - required by the submission guidelines
+!*.hex
+
+# ---------- STM32CubeMX / CubeIDE ----------
+.mxproject
+*.launch
+Debug/
+Release/
+.settings/
