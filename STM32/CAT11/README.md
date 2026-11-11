@@ -5,7 +5,7 @@
 | Field | Details |
 |---|---|
 | **EXP** | CAT11 |
-| **DATE** | <!-- fill in --> |
+| **DATE** | 12/10/2026 |
 | **NAME OF EXP** | STM32 Cortex M3 + ESP8266 HTTP Server |
 | **HARDWARE SETUP / PLATFORM** | STM32F103C8T6 Blue Pill (ARM Cortex-M3, 72 MHz), ST-Link V2, STM32CubeMX + Keil MDK-ARM (HAL), Wemos D1 Mini (ESP8266) |
 | **TASK NO** | Single task – HTTP Server using ESP8266 AT Commands (continuation of CAT10) |
