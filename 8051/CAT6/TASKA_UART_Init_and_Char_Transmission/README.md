@@ -14,7 +14,8 @@ Configure the 8051 UART for 8-bit UART mode, asynchronous operation, 9600 baud, 
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1600" height="1000" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/b144dcf4-caf7-4639-a262-44cdc6e12a00" />
+
 
 **Pin Connections:**
 
