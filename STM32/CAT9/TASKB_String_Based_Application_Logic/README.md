@@ -14,7 +14,8 @@ Develop a UART-based command interface for the STM32. The system accepts command
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1600" height="1006" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/2649de55-503f-41fa-a449-a093cde41711" />
+
 
 **Pin Connections:**
 
