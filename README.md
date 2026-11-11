@@ -10,16 +10,21 @@ Experiment numbers (CATn) follow the **Hands-on exercises numbering in the cours
 ├── README.md
 ├── .gitignore
 ├── 8051/
-│   ├── CAT2 ... CAT7
-│   │   ├── README.md
-│   │   ├── circuit.png
-│   │   └── TASKA_.../ TASKB_.../ (project files)
+│   └── CAT2 ... CAT7
 └── STM32/
     └── CAT8 ... CAT14
-        ├── README.md
-        ├── circuit.png
-        └── TASKA_.../ TASKB_.../ (project files)
+
+Experiment with multiple tasks          Experiment with a single task
+CATn/                                   CATn/
+├── README.md   (overview)              ├── README.md   (full documentation)
+├── TASKA_<name>/                       ├── circuit.png
+│   ├── README.md (full documentation)  └── project files
+│   ├── circuit.png
+│   └── project files
+└── TASKB_<name>/ ...
 ```
+
+Every experiment/task README contains: EXP, DATE, NAME OF EXP, HARDWARE SETUP / PLATFORM, TASK NO, Objective, Circuit Diagram (with pin connections), Core Logic / Pseudocode / Code Base, and Inference.
 
 ## Experiment Index
 
