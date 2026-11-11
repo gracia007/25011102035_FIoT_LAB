@@ -14,7 +14,8 @@ Classify each button press by how long it is held: short press (< 1 s) toggles t
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1600" height="1006" alt="WhatsApp Image 2026-11-11 at 10 06 03 (1)" src="https://github.com/user-attachments/assets/5a404123-1c22-4ad8-a3db-9555e85e9742" />
+
 
 **Pin Connections:**
 
