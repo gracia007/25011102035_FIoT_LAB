@@ -14,7 +14,8 @@ Develop a 4-bit GPIO-based LCD driver by deriving the required command sequence 
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1600" height="1066" alt="WhatsApp Image 2026-11-11 at 10 06 03 (2)" src="https://github.com/user-attachments/assets/d0af57b4-3486-4123-a43a-8dc215f75be9" />
+
 
 **Pin Connections:**
 
