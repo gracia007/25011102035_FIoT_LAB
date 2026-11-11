@@ -14,7 +14,8 @@ Modify the firmware so that each valid switch press toggles the LED state. Inves
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1600" height="1006" alt="WhatsApp Image 2026-11-11 at 10 06 03 (1)" src="https://github.com/user-attachments/assets/4742ee0c-690d-4c16-8cfd-cfec50f9e41a" />
+
 
 **Pin Connections:**
 
