@@ -14,7 +14,6 @@ Configure the LED GPIO as an output using direct register access, write a delay 
 
 ## 2. Circuit Diagram
 
-<img width="1645" height="956" alt="image" src="https://github.com/user-attachments/assets/d0c0fb56-dc1e-44da-99e1-82811dd364cf" />
 
 
 **Pin Connections:**
