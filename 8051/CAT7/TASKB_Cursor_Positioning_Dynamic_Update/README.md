@@ -14,7 +14,8 @@ Develop LCD cursor-positioning and data-update functions: `lcd_goto(row, column)
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1600" height="1066" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/8f4e91ed-aa02-4f35-b181-9bab29b931f4" />
+
 
 **Pin Connections:**
 
