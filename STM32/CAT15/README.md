@@ -17,9 +17,9 @@ Extend the CAT14 sensing node into a complete end-to-end IoT application. The ST
 
 ## 2. Circuit Diagram
 
-The hardware setup is the same as CAT14. The OpenWeatherMap data is fetched over the internet by Node-RED, so no extra hardware is required.
 
-<img width="1331" height="672" alt="Circuit Diagram" src="https://github.com/user-attachments/assets/f9f3add0-35d4-4c92-91ae-3e067bf0d7e0" />
+<img width="1767" height="890" alt="STM32 Sensor and MQTT Wiring Diagram" src="https://github.com/user-attachments/assets/f2c832ca-f8cf-4ec1-936d-f9f0ed722f12" />
+
 
 **Pin Connections:**
 
