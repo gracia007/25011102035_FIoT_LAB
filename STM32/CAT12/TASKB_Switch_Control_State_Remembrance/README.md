@@ -14,7 +14,8 @@ Modify the application so that the on-board push button controls the LED. The LE
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1360" height="711" alt="03C3BCFF-EBD6-4B5C-A809-7C309858A5D0_1_201_a" src="https://github.com/user-attachments/assets/a76d92ef-9975-48d2-a53e-40e9ab0c76ae" />
+
 
 **Pin Connections:**
 
