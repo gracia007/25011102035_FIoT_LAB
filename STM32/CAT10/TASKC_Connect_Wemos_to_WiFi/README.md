@@ -1,4 +1,4 @@
-# CAT10 – Task C – Connect Wemos to Wi-Fi (PDF: Task 9C)
+# CAT10 – Task C – Connect Wemos to Wi-Fi 
 
 | Field | Details |
 |---|---|
@@ -14,7 +14,8 @@ Develop STM32 firmware that configures the Wemos ESP8266 as a Wi-Fi station and 
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1288" height="816" alt="image" src="https://github.com/user-attachments/assets/b5272d42-6025-4264-95a6-c490bdefafeb" />
+
 
 **Pin Connections:**
 
