@@ -1,4 +1,4 @@
-# CAT10 – Task B – Explore the ESP8266 AT Command Interface (PDF: Task 9B)
+# CAT10 – Task B – Explore the ESP8266 AT Command Interface 
 
 | Field | Details |
 |---|---|
@@ -14,7 +14,8 @@ Explore the ESP8266 AT command interface using a command investigation table: de
 
 ## 2. Circuit Diagram
 
-![Circuit Diagram](circuit.png)
+<img width="1288" height="816" alt="image" src="https://github.com/user-attachments/assets/d6bdb86f-25d0-4f16-82ad-798a1a0aa9c2" />
+
 
 **Pin Connections:**
 
