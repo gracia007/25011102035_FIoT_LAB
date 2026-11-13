@@ -382,9 +382,9 @@
               <FilePath>.\STARTUP.A51</FilePath>
             </File>
             <File>
-              <FileName>TASK2.C</FileName>
+              <FileName>7b.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\TASK2.C</FilePath>
+              <FilePath>.\7b.c</FilePath>
             </File>
           </Files>
         </Group>

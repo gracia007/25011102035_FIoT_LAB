@@ -47,7 +47,7 @@ EventRecorderStub.scvd
 !*.hex
 
 # ---------- STM32CubeMX / CubeIDE ----------
-.mxproject
+# .mxproject is required by the evaluator - keep it
 *.launch
 Debug/
 Release/
