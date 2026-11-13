@@ -16,7 +16,7 @@ Develop an interrupt-driven UART driver for the 8051 that communicates with a PC
 
 | Task | Folder | Description |
 |---|---|---|
-| Task A – UART Initialization and Character Transmission | [`TASKA_UART_Init_and_Char_Transmission/`](TASKA_UART_Init_and_Char_Transmission/) | 9600-8-N-1 UART setup, transmit "Hello from 8051" continuously |
-| Task B – UART Echo | [`TASKB_UART_Echo/`](TASKB_UART_Echo/) | Interrupt-driven RX ring buffer; every typed character is echoed back |
+| Task A – UART Initialization and Character Transmission | [`TASK6A/`](TASK6A/) | 9600-8-N-1 UART setup, transmit "Hello from 8051" continuously |
+| Task B – UART Echo | [`TASK6B/`](TASK6B/) | Interrupt-driven RX ring buffer; every typed character is echoed back |
 
 Each task folder contains its own `README.md` (objective, circuit diagram, core logic and inference), `circuit.png` and the project files.

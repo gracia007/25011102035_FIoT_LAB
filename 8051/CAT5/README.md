@@ -16,8 +16,8 @@ Design a timer-driven embedded control system on the 8051 in which a hardware ti
 
 | Task | Folder | Description |
 |---|---|---|
-| Task 1 – Timer 0 Periodic Interrupt (1 s LED Toggle) | [`TASKA_Timer0_Interrupt_1s_LED_Toggle/`](TASKA_Timer0_Interrupt_1s_LED_Toggle/) | Timer 0 1 ms interrupt as software time base, LED toggles every 1 s |
-| Task 2 – LED Fading using Software PWM and Variable-Frequency Square-Wave Generation | [`TASKB_Software_PWM_LED_Fading_and_Square_Wave/`](TASKB_Software_PWM_LED_Fading_and_Square_Wave/) | Software PWM fade 0→100→0 %, square waves 100 Hz–5 kHz and other waveforms |
-| Task 3 – Stepper-Motor Speed and Direction Control (Optional) | [`TASKC_Stepper_Motor_Speed_Direction/`](TASKC_Stepper_Motor_Speed_Direction/) | Timer-driven step sequence; interval sets speed, sequence order sets direction |
+| Task 1 – Timer 0 Periodic Interrupt (1 s LED Toggle) | [`TASK5A/`](TASK5A/) | Timer 0 1 ms interrupt as software time base, LED toggles every 1 s |
+| Task 2 – LED Fading using Software PWM and Variable-Frequency Square-Wave Generation | [`TASK5B/`](TASK5B/) | Software PWM fade 0→100→0 %, square waves 100 Hz–5 kHz and other waveforms |
+| Task 3 – Stepper-Motor Speed and Direction Control (Optional) | [`TASK5C/`](TASK5C/) | Timer-driven step sequence; interval sets speed, sequence order sets direction |
 
 Each task folder contains its own `README.md` (objective, circuit diagram, core logic and inference), `circuit.png` and the project files.

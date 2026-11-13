@@ -16,8 +16,8 @@ Develop an Embedded C LCD driver for the AT89S52 that initialises a 16x2 charact
 
 | Task | Folder | Description |
 |---|---|---|
-| Task 7A – LCD Initialization and Character/String Display | [`TASKA_LCD_Init_Char_String_Display/`](TASKA_LCD_Init_Char_String_Display/) | 4-bit driver: lcd_init(), lcd_cmd(), lcd_data(); text on both rows |
-| Task 7B – Cursor Positioning and Dynamic Value Update | [`TASKB_Cursor_Positioning_Dynamic_Update/`](TASKB_Cursor_Positioning_Dynamic_Update/) | lcd_goto(), lcd_puts(), lcd_print_number() for live values |
-| Task 7C – 4x4 Keypad-Based Character Movement | [`TASKC_Keypad_Character_Movement/`](TASKC_Keypad_Character_Movement/) | Move a character on the 16x2 display with keys 2/8/4/6 |
+| Task 7A – LCD Initialization and Character/String Display | [`TASK7A/`](TASK7A/) | 4-bit driver: lcd_init(), lcd_cmd(), lcd_data(); text on both rows |
+| Task 7B – Cursor Positioning and Dynamic Value Update | [`TASK7B/`](TASK7B/) | lcd_goto(), lcd_puts(), lcd_print_number() for live values |
+| Task 7C – 4x4 Keypad-Based Character Movement | [`TASK7C/`](TASK7C/) | Move a character on the 16x2 display with keys 2/8/4/6 |
 
 Each task folder contains its own `README.md` (objective, circuit diagram, core logic and inference), `circuit.png` and the project files.

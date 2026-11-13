@@ -14,15 +14,17 @@ Experiment numbers (CATn) follow the **Hands-on exercises numbering in the cours
 └── STM32/
     └── CAT8 ... CAT15
 
-Experiment with multiple tasks          Experiment with a single task
+8051 experiments                        STM32 experiments
 CATn/                                   CATn/
-├── README.md   (overview)              ├── README.md   (full documentation)
-├── TASKA_<name>/                       ├── circuit.png
-│   ├── README.md (full documentation)  └── project files
-│   ├── circuit.png
-│   └── project files
-└── TASKB_<name>/ ...
+├── README.md   (overview, only if      ├── README.md   (overview or full documentation)
+│                more than one task)    ├── TASKA_<name>/  (only if more than one task)
+├── TASKnA/                             │   ├── README.md
+│   ├── README.md (full documentation)  │   └── project files
+│   └── project files                   └── project files (single-task experiments)
+└── TASKnB/ ...
 ```
+
+8051 task folders are named `TASK<CAT number><task letter>`, for example `CAT5/TASK5A`, `CAT6/TASK6B`. Single-task 8051 experiments also have one task folder (for example `CAT3/TASK3A`) containing their only README.
 
 Every experiment/task README contains: EXP, DATE, NAME OF EXP, HARDWARE SETUP / PLATFORM, TASK NO, Objective, Circuit Diagram (with pin connections), Core Logic / Pseudocode / Code Base, and Inference.
 
@@ -30,9 +32,9 @@ Every experiment/task README contains: EXP, DATE, NAME OF EXP, HARDWARE SETUP / 
 
 | EXP | Platform | Name of Experiment | Folder |
 |---|---|---|---|
-| CAT2 | 8051 (AT89S52) | GPIO - Bare-Metal LED Blink | [8051/CAT2](8051/CAT2) |
-| CAT3 | 8051 (AT89S52) | Timer-Based LED Pattern Generator and Button Interrupt Controller | [8051/CAT3](8051/CAT3) |
-| CAT4 | 8051 (AT89S52) | Human-Machine Interface using Matrix Keypad, LEDs, and Seven-Segment Display | [8051/CAT4](8051/CAT4) |
+| CAT2 | 8051 (AT89S52) | GPIO - Bare-Metal LED Blink | [8051/CAT2/TASK2B](8051/CAT2/TASK2B) |
+| CAT3 | 8051 (AT89S52) | Timer-Based LED Pattern Generator and Button Interrupt Controller | [8051/CAT3/TASK3A](8051/CAT3/TASK3A) |
+| CAT4 | 8051 (AT89S52) | Human-Machine Interface using Matrix Keypad, LEDs, and Seven-Segment Display | [8051/CAT4/TASK4A](8051/CAT4/TASK4A) |
 | CAT5 | 8051 (AT89S52) | Hardware Timer and Interrupt-Based Timing for LED Fading, Pulse Generation, and Stepper Motor Control | [8051/CAT5](8051/CAT5) |
 | CAT6 | 8051 (AT89S52) | UART Driver and Serial Debugging | [8051/CAT6](8051/CAT6) |
 | CAT7 | 8051 (AT89S52) | 16x2 LCD Driver Development and Dynamic Display Control | [8051/CAT7](8051/CAT7) |
