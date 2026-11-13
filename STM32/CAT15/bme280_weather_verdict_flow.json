@@ -1,0 +1,332 @@
+[
+  {
+    "id": "wflow",
+    "type": "tab",
+    "label": "BME280 vs Weather",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "w_brk",
+    "type": "mqtt-broker",
+    "name": "Public EMQX broker (weather flow)",
+    "broker": "broker.emqx.io",
+    "port": "1883",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "birthMsg": {},
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "closeMsg": {},
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": "",
+    "willMsg": {},
+    "userProps": "",
+    "sessionExpiry": ""
+  },
+  {
+    "id": "w_uib",
+    "type": "ui-base",
+    "name": "Weather Verdict",
+    "path": "/weather",
+    "appIcon": "",
+    "includeClientData": true,
+    "acceptsClientConfig": [
+      "ui-notification",
+      "ui-control"
+    ],
+    "showPathInSidebar": false,
+    "headerContent": "page",
+    "navigationStyle": "default",
+    "titleBarStyle": "default",
+    "showReconnectNotification": true,
+    "notificationDisplayTime": 1,
+    "showDisconnectNotification": true,
+    "allowInstall": false
+  },
+  {
+    "id": "w_uit",
+    "type": "ui-theme",
+    "name": "Weather Theme",
+    "colors": {
+      "surface": "#fcfcfd",
+      "primary": "#0d74ce",
+      "bgPage": "#f9f9fb",
+      "groupBg": "#ffffff",
+      "groupOutline": "#d9d9e0"
+    },
+    "sizes": {
+      "density": "default",
+      "pagePadding": "12px",
+      "groupGap": "12px",
+      "groupBorderRadius": "4px",
+      "widgetGap": "12px"
+    }
+  },
+  {
+    "id": "w_uip",
+    "type": "ui-page",
+    "name": "Sensor vs Weather",
+    "ui": "w_uib",
+    "path": "/verdict",
+    "icon": "home",
+    "layout": "grid",
+    "theme": "w_uit",
+    "breakpoints": [
+      {
+        "name": "Default",
+        "px": 0,
+        "cols": 3
+      },
+      {
+        "name": "Tablet",
+        "px": 576,
+        "cols": 6
+      },
+      {
+        "name": "Small Desktop",
+        "px": 768,
+        "cols": 9
+      },
+      {
+        "name": "Desktop",
+        "px": 1024,
+        "cols": 12
+      }
+    ],
+    "order": 1,
+    "className": "",
+    "visible": "true",
+    "disabled": "false"
+  },
+  {
+    "id": "w_g_ver",
+    "type": "ui-group",
+    "name": "Verdict",
+    "page": "w_uip",
+    "width": 12,
+    "height": 1,
+    "order": 1,
+    "showTitle": false,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default"
+  },
+  {
+    "id": "w_g_cmp",
+    "type": "ui-group",
+    "name": "Comparison",
+    "page": "w_uip",
+    "width": 12,
+    "height": 1,
+    "order": 2,
+    "showTitle": false,
+    "className": "",
+    "visible": "true",
+    "disabled": "false",
+    "groupType": "default"
+  },
+  {
+    "id": "w_in",
+    "type": "mqtt in",
+    "z": "wflow",
+    "name": "STM32 BME280",
+    "topic": "stm32/bme280/goofy",
+    "qos": "0",
+    "datatype": "auto-detect",
+    "broker": "w_brk",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 150,
+    "y": 200,
+    "wires": [
+      [
+        "w_cmp"
+      ]
+    ]
+  },
+  {
+    "id": "w_tick",
+    "type": "inject",
+    "z": "wflow",
+    "name": "Fetch weather every 10 min",
+    "props": [
+      {
+        "p": "payload"
+      }
+    ],
+    "repeat": "600",
+    "crontab": "",
+    "once": true,
+    "onceDelay": "2",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 170,
+    "y": 320,
+    "wires": [
+      [
+        "w_url"
+      ]
+    ]
+  },
+  {
+    "id": "w_url",
+    "type": "function",
+    "z": "wflow",
+    "name": "Build OpenWeatherMap URL",
+    "func": "// ====================== EDIT THESE ======================\nvar API_KEY = 'PASTE_YOUR_OPENWEATHERMAP_KEY_HERE';      // your OpenWeatherMap API key\nvar CITY    = 'Chennai,IN';                         // city,country-code\nvar LAT = null, LON = null;                         // optional: e.g. LAT = 12.79; LON = 80.22;  (if set, used instead of CITY)\n// ========================================================\n\nif (API_KEY === 'PASTE_YOUR_OPENWEATHERMAP_KEY_HERE' || API_KEY === '') {\n    // no key yet: tell the dashboard instead of calling the API\n    return [null, { statusCode: 0, payload: { message: 'Add your OpenWeatherMap API key in the \"Build OpenWeatherMap URL\" node, then Deploy.' } }];\n}\nvar q = (LAT !== null && LON !== null) ? ('lat=' + LAT + '&lon=' + LON) : ('q=' + encodeURIComponent(CITY));\nmsg.url = 'https://api.openweathermap.org/data/2.5/weather?' + q + '&units=metric&appid=' + encodeURIComponent(API_KEY);\nreturn [msg, null];",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 420,
+    "y": 320,
+    "wires": [
+      [
+        "w_http"
+      ],
+      [
+        "w_cmp"
+      ]
+    ]
+  },
+  {
+    "id": "w_http",
+    "type": "http request",
+    "z": "wflow",
+    "name": "OpenWeatherMap",
+    "method": "GET",
+    "ret": "obj",
+    "paytoqs": "ignore",
+    "url": "",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "insecureHTTPParser": false,
+    "authType": "",
+    "senderr": false,
+    "headers": [],
+    "x": 670,
+    "y": 320,
+    "wires": [
+      [
+        "w_cmp",
+        "w_dbg"
+      ]
+    ]
+  },
+  {
+    "id": "w_dbg",
+    "type": "debug",
+    "z": "wflow",
+    "name": "OWM HTTP status",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "statusCode",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 900,
+    "y": 380,
+    "wires": []
+  },
+  {
+    "id": "w_cmp",
+    "type": "function",
+    "z": "wflow",
+    "name": "Compare + verdict",
+    "func": "// Inputs: (1) MQTT message from the STM32   (2) HTTP response from OpenWeatherMap\n// Outputs: [0] comparison table   [1] verdict card\n\nfunction f(v, d) { return (typeof v === 'number') ? v.toFixed(d) : '-'; }\nfunction sgn(v, d) { return (v >= 0 ? '+' : '') + v.toFixed(d); }\n\n// ---------- 1. remember whatever just arrived ----------\nif (msg.statusCode !== undefined) {                       // came from the HTTP request\n    if (msg.statusCode === 200 && msg.payload && msg.payload.main) {\n        flow.set('owm', msg.payload);\n        flow.set('owmErr', null);\n    } else if (msg.statusCode === 0) {\n        flow.set('owmErr', msg.payload.message);\n    } else {\n        var m = (msg.payload && msg.payload.message) ? msg.payload.message : 'no details';\n        var hint = (msg.statusCode === 401) ? ' (a brand-new key can take up to 2 hours to activate)' : '';\n        flow.set('owmErr', 'OpenWeatherMap error ' + msg.statusCode + ': ' + m + hint);\n    }\n} else {                                                  // came from MQTT\n    var d = msg.payload;\n    if (typeof d === 'string') {\n        try { d = JSON.parse(d); } catch (e) { node.warn('Not valid JSON: ' + d); return null; }\n    }\n    if (!d || typeof d.temperature !== 'number' || typeof d.humidity !== 'number' || typeof d.pressure !== 'number') {\n        node.warn('Missing temperature/humidity/pressure field'); return null;\n    }\n    flow.set('sensor', d);\n}\n\nvar s = flow.get('sensor');\nvar w = flow.get('owm');\nvar err = flow.get('owmErr');\n\n// ---------- 2. comparison table ----------\nfunction level(absDiff, ok, warn) { return absDiff <= ok ? 'ok' : (absDiff <= warn ? 'warn' : 'bad'); }\nfunction agree(l) { return l === 'ok' ? 'Close match' : (l === 'warn' ? 'Small gap' : 'Large gap'); }\n\nvar rows = [];\nvar note = [];\nvar times = '';\nvar title = 'Sensor vs OpenWeatherMap';\n\nif (s && w) {\n    var tz = w.timezone || 0;\n    var hhmm = function (u) { return new Date((u + tz) * 1000).toISOString().substr(11, 5); };\n    var place = w.name ? (w.name + (w.sys && w.sys.country ? ', ' + w.sys.country : '')) : 'your location';\n    title = 'Sensor vs OpenWeatherMap (' + place + ')';\n    times = 'Weather observation at ' + hhmm(w.dt) + ' local time. Sensor values are live.';\n\n    var dT = s.temperature - w.main.temp;\n    var dH = s.humidity - w.main.humidity;\n    var dP = s.pressure - w.main.pressure;\n    var lT = level(Math.abs(dT), 2, 5), lH = level(Math.abs(dH), 10, 20), lP = level(Math.abs(dP), 2, 5);\n\n    rows = [\n        { name: 'Temperature', sensor: f(s.temperature, 1) + ' °C',  owm: f(w.main.temp, 1) + ' °C',      diff: sgn(dT, 1) + ' °C',  level: lT, agree: agree(lT) },\n        { name: 'Humidity',    sensor: f(s.humidity, 1) + ' %RH',    owm: f(w.main.humidity, 0) + ' %RH', diff: sgn(dH, 1) + ' %RH', level: lH, agree: agree(lH) },\n        { name: 'Pressure',    sensor: f(s.pressure, 1) + ' hPa',    owm: f(w.main.pressure, 0) + ' hPa', diff: sgn(dP, 1) + ' hPa', level: lP, agree: agree(lP) }\n    ];\n\n    if (dT > 2)       { note.push('Your sensor is ' + dT.toFixed(1) + ' °C warmer than outside (indoor or sun-warmed spot).'); }\n    else if (dT < -2) { note.push('Your sensor is ' + Math.abs(dT).toFixed(1) + ' °C cooler than outside (air-conditioned or shaded spot).'); }\n    else              { note.push('Temperature agrees closely with the outside air.'); }\n    if (Math.abs(dH) > 10) { note.push('Humidity differs by ' + Math.abs(dH).toFixed(0) + ' %RH, normal between indoors and outdoors.'); }\n    if (Math.abs(dP) > 5)  { note.push('Pressure gap is larger than usual: OpenWeatherMap reports sea-level pressure, your sensor reads at its own altitude.'); }\n} else if (s) {\n    rows = [\n        { name: 'Temperature', sensor: f(s.temperature, 1) + ' °C', owm: '-', diff: '-', level: 'wait', agree: 'waiting' },\n        { name: 'Humidity',    sensor: f(s.humidity, 1) + ' %RH',   owm: '-', diff: '-', level: 'wait', agree: 'waiting' },\n        { name: 'Pressure',    sensor: f(s.pressure, 1) + ' hPa',   owm: '-', diff: '-', level: 'wait', agree: 'waiting' }\n    ];\n    note.push('Waiting for OpenWeatherMap data...');\n} else {\n    note.push('Waiting for the first reading from the STM32...');\n}\n\nvar out1 = { payload: { title: title, error: err, rows: rows, note: note.join(' '), times: times } };\n\n// ---------- 3. verdict ----------\nvar v;\nif (!w) {\n    v = { emoji: '⏳', headline: 'Waiting for the weather', detail: err ? err : 'Fetching OpenWeatherMap data...', outside: '', bg: '#eceff1', fg: '#37474f' };\n} else {\n    var cond = (w.weather && w.weather[0]) ? w.weather[0] : { id: 800, description: 'clear sky' };\n    var id = cond.id;\n    var clouds = w.clouds ? w.clouds.all : 0;\n    var rain = (w.rain && (w.rain['1h'] || w.rain['3h'])) || 0;\n    var tOut = w.main.temp;\n    var isDay = (w.sys && w.sys.sunrise && w.sys.sunset) ? (w.dt >= w.sys.sunrise && w.dt < w.sys.sunset) : true;\n\n    var heavy = (id >= 200 && id < 300) || [502, 503, 504, 522, 771, 781].indexOf(id) >= 0 || rain >= 7.6;\n    var light = !heavy && ((id >= 300 && id < 400) || (id >= 500 && id < 600) || rain > 0);\n    var hazy  = !heavy && !light && id >= 700 && id < 800;\n\n    var outside = 'Outside now: ' + cond.description + ', ' + tOut.toFixed(1) + ' °C, clouds ' + clouds + ' %, ' +\n                  (rain > 0 ? 'rain ' + rain + ' mm/h' : 'no rain') + ', ' + (isDay ? 'daytime' : 'night') + '.';\n\n    if (heavy) {\n        v = { emoji: '🌧️', headline: 'Stay at home and have a cozy meal', detail: 'Heavy rain or a storm outside. Keep warm and dry, and enjoy something hot.', bg: '#cfd8e8', fg: '#1a2a4a' };\n    } else if (light) {\n        v = { emoji: '🌦️', headline: 'Light rain: keep an umbrella handy', detail: 'A short outing is fine, or enjoy a hot chai at home.', bg: '#dcecfa', fg: '#14395c' };\n    } else if (hazy) {\n        v = { emoji: '🌫️', headline: 'Hazy or misty: take it easy', detail: 'Visibility is low. A short walk is fine, skip long rides.', bg: '#e6e6e6', fg: '#333333' };\n    } else if (id >= 600 && id < 700) {\n        v = { emoji: '❄️', headline: 'Snow outside: stay warm indoors', detail: 'Have a warm drink and wait for it to clear.', bg: '#e8f1fb', fg: '#1a3a5a' };\n    } else if (!isDay && clouds <= 30) {\n        v = { emoji: '🌙', headline: 'Clear night: go for a calm night walk or ride', detail: 'No rain and a clear sky.', bg: '#1f2a44', fg: '#ffffff' };\n    } else if (clouds <= 30) {\n        var very = clouds <= 15;\n        v = { emoji: '☀️', headline: (very ? 'Very sunny: go for a swim and have ice cream later! 🍦' : 'Mostly sunny: go for a swim and have ice cream later! 🍦'),\n              detail: (tOut >= 35 ? 'It is very hot outside, so use sunscreen and drink plenty of water.' : 'Bright, dry weather outside.'), bg: '#fff3c4', fg: '#6b4e00' };\n    } else {\n        v = { emoji: '⛅', headline: 'Cloudy but dry: a great time for a ride', detail: 'Cloud cover ' + clouds + ' % and no rain.', bg: '#e3e9f0', fg: '#2c3e50' };\n    }\n    v.outside = outside;\n    if (err) { v.detail += ' (OpenWeatherMap is failing right now, so this uses the last successful weather reading.)'; }\n}\nvar out2 = { payload: v };\n\nreturn [out1, out2];",
+    "outputs": 2,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 640,
+    "y": 220,
+    "wires": [
+      [
+        "w_t_cmp"
+      ],
+      [
+        "w_t_ver"
+      ]
+    ]
+  },
+  {
+    "id": "w_t_cmp",
+    "type": "ui-template",
+    "z": "wflow",
+    "group": "w_g_cmp",
+    "page": "",
+    "ui": "",
+    "name": "Comparison table",
+    "order": 1,
+    "width": 12,
+    "height": 0,
+    "head": "",
+    "format": "<template>\n  <div class=\"wx-wrap\">\n    <div v-if=\"msg && msg.payload\">\n      <div class=\"wx-title\">{{ msg.payload.title }}</div>\n      <div v-if=\"msg.payload.error\" class=\"wx-err\">⚠ {{ msg.payload.error }}</div>\n      <table class=\"wx-table\">\n        <thead>\n          <tr><th>Quantity</th><th>Sensor (BME280)</th><th>OpenWeatherMap</th><th>Difference</th><th>Agreement</th></tr>\n        </thead>\n        <tbody>\n          <tr v-for=\"r in msg.payload.rows\" :key=\"r.name\">\n            <td class=\"wx-name\">{{ r.name }}</td>\n            <td>{{ r.sensor }}</td>\n            <td>{{ r.owm }}</td>\n            <td>{{ r.diff }}</td>\n            <td><span :class=\"'wx-pill wx-' + r.level\">{{ r.agree }}</span></td>\n          </tr>\n        </tbody>\n      </table>\n      <div class=\"wx-note\">{{ msg.payload.note }}</div>\n      <div class=\"wx-time\">{{ msg.payload.times }}</div>\n    </div>\n    <div v-else class=\"wx-note\">Waiting for the first sensor reading and weather data...</div>\n  </div>\n</template>\n\n<style>\n.wx-wrap { width: 100%; }\n.wx-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 8px; }\n.wx-table { width: 100%; border-collapse: collapse; font-size: 1rem; }\n.wx-table th { text-align: left; font-weight: 600; padding: 6px 8px; border-bottom: 2px solid rgba(128,128,128,.4); }\n.wx-table td { padding: 8px; border-bottom: 1px solid rgba(128,128,128,.25); }\n.wx-name { font-weight: 600; }\n.wx-pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .85rem; font-weight: 600; }\n.wx-ok   { background: #d8f3dc; color: #1b5e20; }\n.wx-warn { background: #fff0c2; color: #7a5a00; }\n.wx-bad  { background: #fddede; color: #8e1b1b; }\n.wx-wait { background: #e6e6e6; color: #555555; }\n.wx-note { margin-top: 10px; }\n.wx-time { margin-top: 4px; font-size: .85rem; opacity: .7; }\n.wx-err  { background: #fddede; color: #8e1b1b; padding: 6px 10px; border-radius: 6px; margin-bottom: 8px; }\n</style>",
+    "storeOutMessages": true,
+    "passthru": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 900,
+    "y": 190,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "w_t_ver",
+    "type": "ui-template",
+    "z": "wflow",
+    "group": "w_g_ver",
+    "page": "",
+    "ui": "",
+    "name": "Verdict card",
+    "order": 1,
+    "width": 12,
+    "height": 0,
+    "head": "",
+    "format": "<template>\n  <div v-if=\"msg && msg.payload\" class=\"wx-verdict\" :style=\"{ background: msg.payload.bg, color: msg.payload.fg }\">\n    <div class=\"wx-emoji\">{{ msg.payload.emoji }}</div>\n    <div class=\"wx-head\">{{ msg.payload.headline }}</div>\n    <div class=\"wx-detail\">{{ msg.payload.detail }}</div>\n    <div class=\"wx-outside\">{{ msg.payload.outside }}</div>\n  </div>\n  <div v-else>Waiting for data...</div>\n</template>\n\n<style>\n.wx-verdict { width: 100%; border-radius: 10px; padding: 18px 20px; text-align: center; }\n.wx-emoji { font-size: 3rem; line-height: 1.1; }\n.wx-head { font-size: 1.6rem; font-weight: 700; margin-top: 4px; }\n.wx-detail { font-size: 1.05rem; margin-top: 6px; }\n.wx-outside { font-size: .9rem; margin-top: 10px; opacity: .8; }\n</style>",
+    "storeOutMessages": true,
+    "passthru": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 900,
+    "y": 250,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "w_note",
+    "type": "comment",
+    "z": "wflow",
+    "name": "1) Open 'Build OpenWeatherMap URL' and paste your API key, then Deploy.  2) Dashboard: /weather/verdict",
+    "info": "",
+    "x": 400,
+    "y": 120,
+    "wires": []
+  }
+]
