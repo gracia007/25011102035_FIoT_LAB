@@ -1,4 +1,4 @@
-# CAT10 – Task A – Establish STM32 ↔ Wemos UART Communication (PDF: Task 9A)
+# CAT10 – Task A – Establish STM32 ↔ Wemos UART Communication 
 
 | Field | Details |
 |---|---|
