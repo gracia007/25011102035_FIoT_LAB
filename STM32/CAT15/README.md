@@ -18,8 +18,13 @@ Extend the CAT14 sensing node into a complete end-to-end IoT application. The ST
 ## 2. Circuit Diagram & Dashboard
 
 
+**Circuit Diagram:**
+
 ![Circuit Diagram](circuit.png)
-![Dashboard](Sensor vs Weather Dashboard.png)
+
+**Node-RED Dashboard (Sensor vs Weather):**
+
+![Dashboard](dashboard.png)
 
 
 **Pin Connections:**
