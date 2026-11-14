@@ -15,10 +15,11 @@ Extend the CAT14 sensing node into a complete end-to-end IoT application. The ST
 - a weather verdict card (condition, advice and current outdoor conditions), and
 - a comparison table with the sensor value, OpenWeatherMap value, difference and an agreement label for each quantity.
 
-## 2. Circuit Diagram
+## 2. Circuit Diagram & Dashboard
 
 
 ![Circuit Diagram](circuit.png)
+![Dashboard](Sensor vs Weather Dashboard.png)
 
 
 **Pin Connections:**
