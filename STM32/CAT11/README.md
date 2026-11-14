@@ -16,7 +16,7 @@ As a continuation of CAT10, configure the ESP8266 as a TCP server on port 80 so 
 
 ## 2. Circuit Diagram
 
-<img width="1268" height="1241" alt="STM32F103C8T6 Serial Communication Diagram" src="https://github.com/user-attachments/assets/07c2a0af-13fb-49d9-9ff9-9330b9a05516" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

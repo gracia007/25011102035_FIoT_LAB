@@ -18,7 +18,7 @@ Extend the CAT14 sensing node into a complete end-to-end IoT application. The ST
 ## 2. Circuit Diagram
 
 
-<img width="1767" height="890" alt="STM32 Sensor and MQTT Wiring Diagram" src="https://github.com/user-attachments/assets/f2c832ca-f8cf-4ec1-936d-f9f0ed722f12" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

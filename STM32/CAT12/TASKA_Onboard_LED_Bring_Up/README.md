@@ -14,7 +14,7 @@ Develop and program an STM32 application to verify the NUCLEO-F401RE hardware an
 
 ## 2. Circuit Diagram
 
-<img width="1360" height="711" alt="03C3BCFF-EBD6-4B5C-A809-7C309858A5D0_1_201_a" src="https://github.com/user-attachments/assets/1e3946d9-ea31-47c0-a39b-5da9bc8000d0" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

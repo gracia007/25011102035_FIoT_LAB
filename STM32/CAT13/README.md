@@ -14,7 +14,7 @@ Develop an STM32-based environmental sensing application to interface a BME280 s
 
 ## 2. Circuit Diagram
 
-<img width="1218" height="622" alt="E6157E0D-EB81-4A4C-B4DE-97BF34C669D2_1_201_a" src="https://github.com/user-attachments/assets/4ac52d0a-0fa0-4441-acab-3c7033377ba5" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

@@ -14,7 +14,7 @@ As a continuation of CAT13, interface the BME280 over I²C to obtain compensated
 
 ## 2. Circuit Diagram
 
-<img width="1331" height="672" alt="430E1EA0-B662-428D-B465-AEFF131EAAA1_1_201_a" src="https://github.com/user-attachments/assets/f9f3add0-35d4-4c92-91ae-3e067bf0d7e0" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

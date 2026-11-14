@@ -14,7 +14,7 @@ Configure UART using STM32CubeMX and HAL, establish communication between the ST
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="1006" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/e2e6a7e6-fdcf-4ed4-b666-0d4b2767851a" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

@@ -14,7 +14,7 @@ Design and implement a register-level GPIO controller. Configure four LEDs as di
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="929" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/030c0f1b-d82f-473b-bc94-263841a586b6" />
+![Circuit Diagram](circuit.png)
 
 **Pin Connections:**
 

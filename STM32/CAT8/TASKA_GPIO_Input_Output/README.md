@@ -14,7 +14,7 @@ Interface a push-button and LED with the STM32. Configure the corresponding GPIO
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="1006" alt="WhatsApp Image 2026-11-11 at 10 06 03 (1)" src="https://github.com/user-attachments/assets/bef0f493-2dfe-424f-8a8b-1919f5a32c7a" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

@@ -14,7 +14,7 @@ Before attempting Wi-Fi, prove that the two boards can communicate. Configure a 
 
 ## 2. Circuit Diagram
 
-<img width="1288" height="816" alt="image" src="https://github.com/user-attachments/assets/7b93e70e-839a-4a7a-9d8d-3f7d6adbbdbf" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

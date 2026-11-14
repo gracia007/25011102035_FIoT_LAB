@@ -14,7 +14,7 @@ Develop an interactive LCD application in which a character is moved across the 
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="1066" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/9433fb7a-4d5a-495c-bd27-51e182961ffc" />
+![Circuit Diagram](circuit.png)
 
 
 **Pin Connections:**

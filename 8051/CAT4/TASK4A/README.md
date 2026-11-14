@@ -14,7 +14,7 @@ Design a simple embedded user interface in which the keypad acts as the input de
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="1177" alt="WhatsApp Image 2026-11-11 at 10 06 03 (1)" src="https://github.com/user-attachments/assets/57289528-a720-4ea9-920e-e5de5e8bf1c5" />
+![Circuit Diagram](circuit.png)
 
 **Pin Connections:**
 

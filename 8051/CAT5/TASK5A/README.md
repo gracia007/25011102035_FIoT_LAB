@@ -14,7 +14,7 @@ Configure Timer 0 to generate a precise periodic interrupt. Use the timer interr
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="1177" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/b0bb1265-939b-4948-9b9c-9882bfe36abe" />
+![Circuit Diagram](circuit.png)
 
 **Pin Connections:**
 

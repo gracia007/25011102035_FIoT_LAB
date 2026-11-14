@@ -14,7 +14,7 @@ Make the experiment interactive: whatever character is typed in PuTTY must be re
 
 ## 2. Circuit Diagram
 
-<img width="1600" height="1000" alt="WhatsApp Image 2026-11-11 at 10 06 03" src="https://github.com/user-attachments/assets/f367d3ad-eae0-401b-8a21-b5d5e93487d7" />
+![Circuit Diagram](circuit.png)
 
 **Pin Connections:**
 
